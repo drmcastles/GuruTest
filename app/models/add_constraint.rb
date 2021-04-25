@@ -1,0 +1,2 @@
+class AddConstraint < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AddToLevelCorrectDefault < ApplicationRecord
+end
