@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
-  has_many :category
+  belongs_to :category
+  has_many :test_passages
   has_many :user, through: :test_passages
 
   def self.titles_by_category(category)
