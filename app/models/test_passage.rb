@@ -1,4 +1,4 @@
 class TestPassage < ApplicationRecord
-  belongs_to :user
-  belongs_to :test
+  has_many :user
+  has_many :test
 end
