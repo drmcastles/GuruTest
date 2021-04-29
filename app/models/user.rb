@@ -3,8 +3,6 @@ class User < ApplicationRecord
   has_many :author_tests, class_name: 'Test', foreign_key: :author_id
   has_many :tests, through: :test_passages
   def tests_by_level(level)
-
-    Test.joins("LEFT JOIN users ON users.id = user_tests.user_id")
-    .where(level: level, user_tests: { user_id: id })
+    tests.where(level: level)
   end
 end
