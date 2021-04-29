@@ -4,13 +4,10 @@ class Question < ApplicationRecord
 
    def change_hard(level)
 
-  case level
-    when 0..1
-       puts "Easy"
-    when 2..4
-      puts "SREDNE"
-    when 5..Float::INFINITY
-      puts "Hard!"
+  validates :body,
+            :test_id,
+            presence: true
 
-   end
+  validates :answers, length: { minimum: 1, maximum: 4 }
+
 end
