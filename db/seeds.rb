@@ -35,13 +35,13 @@ answers = Answer.create!([{ question_id: questions[0].id, body: 'No', correct: t
                 { question_id: questions[4].id, body: '26' },
                 { question_id: questions[4].id, body: '8' }])
 
-users = User.create!([{first_name: 'John', last_name:'Jekson' },
-                      {first_name: 'Woody', last_name:'Loody' },
-                      {first_name: 'Mary', last_name:'Well' }])
+users = User.create!([{first_name: 'John', last_name:'Jekson', email: 'jonh@mail' },
+                      {first_name: 'Woody', last_name:'Loody', email: 'lolololo@mail' },
+                      {first_name: 'Mary', last_name:'Well', email: 'yo@mail' }])
 
 test_passages = TestPassage.create!([{ user_id: users[0].id, test_id: tests[0].id },
-                     { user_id: users[0].id, test_id: tests[2].id, email: '@mail' },
-                     { user_id: users[0].id, test_id: tests[3].id, email: '@yandex' },
-                     { user_id: users[1].id, test_id: tests[1].id, email: '@gmail' },
-                     { user_id: users[1].id, test_id: tests[2].id, email: '@yandex' },
-                     { user_id: users[1].id, test_id: tests[3].id, email: '@mail'}])
+                     { user_id: users[0].id, test_id: tests[2].id },
+                     { user_id: users[0].id, test_id: tests[3].id },
+                     { user_id: users[1].id, test_id: tests[1].id },
+                     { user_id: users[1].id, test_id: tests[2].id },
+                     { user_id: users[1].id, test_id: tests[3].id }])
