@@ -20,5 +20,9 @@ class Test < ApplicationRecord
   validates :level, numericality: {only_integer: true,
                                    greater_than_or_equal_to: 0}
 
+  def self.by_category(category)
+    tests_by_category(category).order(title: :desc).pluck(:title)
+  end
+
   end
 end
