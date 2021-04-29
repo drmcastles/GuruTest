@@ -40,8 +40,8 @@ users = User.create!([{first_name: 'John', last_name:'Jekson' },
                       {first_name: 'Mary', last_name:'Well' }])
 
 test_passages = TestPassage.create!([{ user_id: users[0].id, test_id: tests[0].id },
-                     { user_id: users[0].id, test_id: tests[2].id },
-                     { user_id: users[0].id, test_id: tests[3].id },
-                     { user_id: users[1].id, test_id: tests[1].id },
-                     { user_id: users[1].id, test_id: tests[2].id },
-                     { user_id: users[1].id, test_id: tests[3].id }])
+                     { user_id: users[0].id, test_id: tests[2].id, email: '@mail' },
+                     { user_id: users[0].id, test_id: tests[3].id, email: '@yandex' },
+                     { user_id: users[1].id, test_id: tests[1].id, email: '@gmail' },
+                     { user_id: users[1].id, test_id: tests[2].id, email: '@yandex' },
+                     { user_id: users[1].id, test_id: tests[3].id, email: '@mail'}])

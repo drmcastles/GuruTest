@@ -23,6 +23,4 @@ class Test < ApplicationRecord
   def self.by_category(category)
     tests_by_category(category).order(title: :desc).pluck(:title)
   end
-
-  end
 end
