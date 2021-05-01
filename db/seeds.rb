@@ -10,38 +10,10 @@ categories = Category.create([{ title: 'biology' },
                                { title: 'mathematics' },
                                { title: 'physics' }])
 
-tests = Test.create!([{ title: 'botany', level: 1, category_id: categories[0].id },
-                         { title: 'zoology', level: 2, category_id: categories[0].id },
-                         { title: 'mechanics', level: 3, category_id: categories[3].id },
-                         { title: 'optics', level: 2, category_id: categories[3].id },
-                         { title: 'arithmetic', level: 1, category_id: categories[2].id }])
-
-questions = Question.create!([{ body: 'Is a rose a tree?', test_id: tests[0].id },
-                             { body: 'Is a beetle a mammal?', test_id: tests[1].id },
-                             { body: 'Who is the largest animal?', test_id: tests[1].id },
-                             { body: '2 + 3 =', test_id: tests[4].id },
-                             { body: '2 * 6 =', test_id: tests[4].id }])
-
-answers = Answer.create!([{ question_id: questions[0].id, body: 'No', correct: true },
-                { question_id: questions[0].id, body: 'Yes' },
-                { question_id: questions[1].id, body: 'No', correct: true },
-                { question_id: questions[1].id, body: 'Yes' },
-                { question_id: questions[2].id, body: 'whale', correct: true },
-                { question_id: questions[2].id, body: 'elephant' },
-                { question_id: questions[2].id, body: 'zebra' },
-                { question_id: questions[3].id, body: '5', correct: true },
-                { question_id: questions[3].id, body: '23' },
-                { question_id: questions[4].id, body: '12', correct: true },
-                { question_id: questions[4].id, body: '26' },
-                { question_id: questions[4].id, body: '8' }])
 
 users = User.create!([{first_name: 'John', last_name:'Jekson', email: 'jonh@mail' },
                       {first_name: 'Woody', last_name:'Loody', email: 'lolololo@mail' },
                       {first_name: 'Mary', last_name:'Well', email: 'yo@mail' }])
 
-test_passages = TestPassage.create!([{ user_id: users[0].id, test_id: tests[0].id },
-                     { user_id: users[0].id, test_id: tests[2].id },
-                     { user_id: users[0].id, test_id: tests[3].id },
-                     { user_id: users[1].id, test_id: tests[1].id },
-                     { user_id: users[1].id, test_id: tests[2].id },
-                     { user_id: users[1].id, test_id: tests[3].id }])
+
+tests = Test.create!([{ title: 'botany', level: 1, category_id: categories.first.id, autor_id: users.first.id }])
