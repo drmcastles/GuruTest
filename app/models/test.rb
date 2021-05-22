@@ -1,10 +1,11 @@
 class Test < ApplicationRecord
 
   belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  belongs_to :autor, class_name: 'User', foreign_key: :autor_id
 
+  has_many :questions
   has_many :test_passages
-  has_many :user, through: :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true,
