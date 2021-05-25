@@ -20,15 +20,15 @@ users = User.create([{first_name: 'John', last_name:'Jekson', email: "lol@yandex
 
 
 tests = Test.create([{ title: 'botany', level: 1, category: categories[0],
-                        autor: users[2] },
+                        author: users[2] },
                       { title: 'zoology', level: 2, category: categories[0],
-                        autor: users[2] },
+                        author: users[2] },
                       { title: 'mechanics', level: 3, category: categories[3],
-                        autor: users[2] },
+                        author: users[2] },
                       { title: 'optics', level: 2, category: categories[3],
-                        autor: users[2] },
+                        author: users[2] },
                       { title: 'arithmetic', level: 1, category: categories[2],
-                        autor: users[2] }])
+                        author: users[2] }])
 
 questions = Question.create([{ body: 'Is a rose a tree?', test: tests[0] },
                               { body: 'Is a beetle a mammal?', test: tests[1] },
