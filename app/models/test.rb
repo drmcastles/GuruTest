@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
 
   belongs_to :category
-  belongs_to :autor, class_name: 'User', foreign_key: :autor_id
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
 
   has_many :questions
   has_many :test_passages
