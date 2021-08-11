@@ -30,26 +30,24 @@ tests = Test.create([{ title: 'botany', level: 1, category: categories[0],
                       { title: 'arithmetic', level: 1, category: categories[2],
                         author: users[2] }])
 
-questions = Question.create([{ body: 'Is a rose a tree?', test: tests[0] },
+questions = Question.create!([{ body: 'Is a rose a tree?', test: tests[0]},
                               { body: 'Is a beetle a mammal?', test: tests[1] },
                               { body: 'Who is the largest animal?', test: tests[1] },
-                              { body: '2 + 3 =', test: tests[0] },
-                              { body: '2 * 6 =', test: tests[2] }])
+                              { body: '2 + 3 =', test: tests[4] },
+                              { body: '2 * 6 =', test: tests[4] }])
 
-answers = Answer.create([{ question: questions[0], body: 'No', correct: true },
+Answer.create!([{ question: questions[0], body: 'No', correct: true },
                 { question: questions[0], body: 'Yes' },
                 { question: questions[1], body: 'No', correct: true },
                 { question: questions[1], body: 'Yes' },
                 { question: questions[2], body: 'whale', correct: true },
-                { question: questions[2], body: 'elephant' },
-                { question: questions[2], body: 'zebra' },
                 { question: questions[3], body: '5', correct: true },
                 { question: questions[3], body: '23' },
                 { question: questions[4], body: '12', correct: true },
                 { question: questions[4], body: '26' },
                 { question: questions[4], body: '8' }])
 
-test_passages = TestPassage.create([{ user: users[0], test: tests[0] },
+TestPassage.create!([{ user: users[0], test: tests[0] },
                      { user: users[0], test: tests[2] },
                      { user: users[0], test: tests[3] },
                      { user: users[1], test: tests[1] },
