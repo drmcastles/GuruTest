@@ -1,11 +1,16 @@
-<%= question_header(@question) %>
-<%= form_with model: [@test, @question], local: true do |form| %>
+<p>
+<strong>Question: </strong>
+<%= @question.body %>
+</p>
 
-  <p>
-    <%= form.label :body %>
-    <%= form.text_field :body, id: :question_body %>
-  </p>
+<p>
+<strong>Variants of answers: </strong>
+<%= render(@question.answers) %>
 
-  <p><%= form.submit %></p>
-
+<% unless @question.answers.present? %>
+  <p>The question has no answers</p>
 <% end %>
+</p>
+
+<%= link_to 'Back', test_path(id: @question.test_id) %>
+<%= link_to 'Edit', edit_question_path(@question) %>
