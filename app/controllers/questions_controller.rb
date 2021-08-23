@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new(test: @test)
+    @question = @test.question.new(test: @test)
   end
 
   def create
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy!
+    @question.destroy
     redirect_to test_path(id: @question.test_id)
   end
 
