@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
 
   # POST /answers or /answers.json
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answer.new(answer_params)
     if @answer.save
       redirect_to @answer, notice: 'Answer was seccusfully created.'
     else
@@ -49,6 +49,6 @@ class AnswersController < ApplicationController
     end
 
     def answer_params
-      params.require(:answer).permit(body, :correct)
+      params.require(:answer).permit(:body, :correct)
     end
 end

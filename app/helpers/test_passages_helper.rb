@@ -9,7 +9,7 @@ def result(test_passage)
   end
 end
 
-def progress(test_passage)
+def progress_display(test_passage)
   content_tag(:p,
     "#{test_passage.number_of_current_question} from #{test_passage.amount_questions}")
 end

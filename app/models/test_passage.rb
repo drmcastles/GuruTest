@@ -4,6 +4,8 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  SATISFACTORY_VALUE = 85
+
   before_validation :before_validation_next_question
 
 
@@ -21,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    total_percanteges >= 85
+    total_percanteges >= SUTISFACTORY_VALUE
   end
 
   def amount_questions
