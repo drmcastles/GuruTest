@@ -1,5 +1,6 @@
-class AnswersController < ApplicationController
+class AnswersController < AuthenticationController
   before_action :set_answer, only: %i[ show edit update destroy ]
+  before_action :find_question, only: %i{new create}
 
   # GET /answers or /answers.json
 

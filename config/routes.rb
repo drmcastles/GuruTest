@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
 
+  get 'authentication/new'
   root 'tests#index'
 
   get 'sessions/new'
