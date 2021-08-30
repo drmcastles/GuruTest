@@ -1,11 +1,12 @@
 
 Rails.application.routes.draw do
 
-  get 'authentication/new'
   root 'tests#index'
 
-  get 'sessions/new'
   get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  get :exit, to: 'sessions#exit'
+
 
   resources :users, only: :create
 
