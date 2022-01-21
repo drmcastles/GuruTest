@@ -1,6 +1,6 @@
-class TestsController < ApplicationController
+class TestsController < AuthenticationController
 
-  before_action :find_test, only: %i[show update destroy]
+  before_action :find_test, only: %i[show update destroy start]
 
   def index
   end
@@ -17,9 +17,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
-
-    @test.author = User.all.first # delete leter
+    @test = current_user.author_tests.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -41,6 +39,11 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
+  end
+
   private
 
   def test_params
@@ -51,4 +54,4 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-end  
+end

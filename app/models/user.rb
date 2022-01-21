@@ -1,14 +1,25 @@
 class User < ApplicationRecord
-  has_many :test_passages
-  has_many :author_tests, class_name: 'Test', foreign_key: :author_id
+
+  attr_writer :password_confirmation
+
+  has_many :author_tests, class_name: 'Test', foreign_key: :author_id,
+           dependent: :nullify
+  has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
-  def tests_by_level(level)
-    tests.where(level: level)
+  validates :name, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP },
+                                    uniqueness: true
+  validates :password, confirmation: true
+
+  has_secure_password
+
+  def test_by_level(level)
+    tests.by_level(level)
   end
 
-
-
-  validates :first_name, :last_name, :email, presence: true
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test: test)
+  end
 
 end
